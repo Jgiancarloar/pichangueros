@@ -1,4 +1,4 @@
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Input } from "@nextui-org/react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addChampionship } from "../../redux/sliceChampionship";
@@ -31,6 +31,13 @@ const CreateChampionship = ({ isOpen, onOpenChange }) => {
                 onOpenChange={onOpenChange}
                 placement="top-center"
                 backdrop="blur"
+                css={{
+                    'input:focus': {
+                        transform: 'none !important',
+                        outline: 'none !important',
+                        boxShadow: 'none !important'
+                    }
+                }}
             >
                 <ModalContent>
                     {(onClose) => (
@@ -39,12 +46,12 @@ const CreateChampionship = ({ isOpen, onOpenChange }) => {
                             <ModalBody>
                                 <Input
                                     name="name"
-                                    value={championship.name }
+                                    value={championship.name}
                                     onChange={handleChange}
                                     size="sm" type="text" label="Nombre del campeonato" />
                                 <Input
                                     name="organizer"
-                                    value={championship.organizer }
+                                    value={championship.organizer}
                                     onChange={handleChange}
                                     size="sm" type="text" label="Organizador" />
                             </ModalBody>

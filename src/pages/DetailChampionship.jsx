@@ -66,7 +66,7 @@ const DetailChampionship = () => {
                 ))}
             </div>
             <div>
-                {teams?.length > 0 && !championship?.fixture && (
+                {teams?.length > 1 && !championship?.fixture && (
                     <Button onClick={() => handleStartChampionship(championship.id)} className="bg-green-400 font-bold hover:bg-green-500">
                         Iniciar campeonato
                     </Button>

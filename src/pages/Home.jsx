@@ -43,23 +43,24 @@ const Home = () => {
           {showModal && <CreateChampionship isOpen={showModal} onOpenChange={setShowModal} />}
         </div>
         <div>
+          <h3 className="text-lg font-semibold mb-4 text-center">Mis campeonatos</h3>
           {championships.map((championship) => (
             <div
               key={championship.id}
-              className="border border-gray-700 p-4 rounded-lg mb-4 bg-gray-800"
+              className="p-4 rounded-lg mb-4 bg-gray-800"
             >
               <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleExpand(championship.id)}>
-                <h3 className="text-lg font-semibold">{championship.name}</h3>
+                <h3 className="text-lg font-semibold capitalize">{championship.name}</h3>
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleInfo(championship.id)}
-                    className="bg-yellow-500 font-bold hover:bg-yellow-600 text-black py-1 px-3 rounded-lg transition duration-200"
+                    className="bg-yellow-500 bg-opacity-20 font-semibold hover:bg-yellow-600 text-yellow-500 py-2 px-5 rounded-lg transition duration-200"
                   >
                     Info
                   </button>
                   <button
                     onClick={() => handleDelete(championship.id)}
-                    className="bg-red-500 font-bold hover:bg-red-600 text-black py-1 px-3 rounded-lg transition duration-200"
+                    className="bg-red-500 bg-opacity-20 font-semibold hover:bg-red-600 text-red-500 py-2 px-5 rounded-lg transition duration-200"
                   >
                     Eliminar
                   </button>

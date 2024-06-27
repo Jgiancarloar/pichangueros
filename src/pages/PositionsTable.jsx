@@ -62,7 +62,7 @@ const PositionsTable = () => {
     });
 
     return (
-        <div className="bg-gray-900 text-white min-h-screen py-8">
+        <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen py-8">
             <div className="max-w-4xl mx-auto px-4">
                 <h2 className="text-2xl font-bold mb-4">Tabla de Posiciones</h2>
                 <div className="overflow-x-auto">

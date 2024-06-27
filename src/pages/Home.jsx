@@ -30,8 +30,8 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen pt-20 pb-5 px-5">
-      <div className="container mx-auto">
+    <div className="text-white min-h-screen pt-20 pb-5 px-5">
+      <div className="mx-auto">
         <h2 className="text-3xl font-bold mb-8">Bienvenido, Giancarlo</h2>
         <div className="mb-8 flex justify-between items-center">
           <button

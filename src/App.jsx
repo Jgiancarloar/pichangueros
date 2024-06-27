@@ -9,7 +9,7 @@ import PositionsTable from "./pages/PositionsTable"
 function App() {
 
   return (
-    <div className="">
+    <>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/date-mode/:id" element={<DateModePage />} />
@@ -18,7 +18,7 @@ function App() {
         <Route path="detail-championship/:id" element={<DetailChampionship />} />
         <Route path="/positions-table/:id" element={<PositionsTable />} />
       </Routes>
-    </div>
+    </>
   )
 }
 

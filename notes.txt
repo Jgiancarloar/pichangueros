@@ -1,0 +1,125 @@
+import { useState } from "react";
+import crearFixture from "../utils/DateMode";
+
+const DateModePage = () => {
+  const teams = [
+    'Alianza Lima', 'Universitario', 'Sporting Cristal', 'Melgar', 'Sport Huancayo',
+    'UTC', 'César Vallejo', 'Binacional', 'Ayacucho FC', 'Cienciano', 'Deportivo Municipal',
+    'Carlos A. Mannucci', 'Alianza Universidad', 'Academia Cantolao', 'Cusco FC'
+  ];
+
+  const [fixture, setFixture] = useState([]);
+
+  const handleCreateFixture = () => {
+    setFixture(crearFixture(teams));
+  };
+
+  // Función para mover "equipo x descansa esta jornada" al final de la ronda
+  const sortRonda = (ronda) => {
+    const descansaIndex = ronda.findIndex(partido => partido[0] === "Descansa" || partido[1] === "Descansa");
+    if (descansaIndex !== -1) {
+      const descansaPartido = ronda.splice(descansaIndex, 1);
+      ronda.push(descansaPartido[0]);
+    }
+    return ronda;
+  };
+
+  const [expandedRonda, setExpandedRonda] = useState(null);
+
+  const toggleRonda = (index) => {
+    if (expandedRonda === index) {
+      setExpandedRonda(null);
+    } else {
+      setExpandedRonda(index);
+    }
+  };
+
+  return (
+    <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen py-20 px-5">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-bold mb-8">Fixture de Partidos - Estilo Spotify</h1>
+        <button
+          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mb-4 transition duration-300 ease-in-out"
+          onClick={handleCreateFixture}
+        >
+          Generar Fixture
+        </button>
+        {fixture.map((ronda, index) => {
+          // Ordenar la ronda para mover "equipo x descansa esta jornada" al final
+          const sortedRonda = sortRonda([...ronda]);
+          return (
+            <div key={index} className="mb-6 rounded-lg overflow-hidden shadow-md bg-gray-800">
+              <div
+                className={`flex items-center justify-between cursor-pointer py-3 px-4 bg-gray-700 ${expandedRonda === index ? 'rounded-t-md' : 'rounded-md'}`}
+                onClick={() => toggleRonda(index)}
+              >
+                <h2 className="text-xl font-semibold text-white">
+                  Ronda {index + 1}
+                </h2>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`h-6 w-6 ${expandedRonda === index ? 'transform rotate-180 text-green-400' : 'text-green-200'}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d={expandedRonda === index ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+                  />
+                </svg>
+              </div>
+              {expandedRonda === index && (
+                <div className="px-4 py-3">
+                  {sortedRonda.map((partido, partidoIndex) => (
+                    <div key={partidoIndex} className={`flex items-center justify-between mb-3 ${partidoIndex % 2 === 0 ? 'bg-gray-700' : 'bg-gray-600'} py-2 px-4 rounded-md`}>
+                      {partido[0] !== "Descansa" && partido[1] !== "Descansa" ? (
+                        <>
+                          <div className="flex flex-col">
+                            <p className="text-base">{partido[0]}</p>
+                            <p className="text-base">{partido[1]}</p>
+                          </div>
+                          <div className="flex items-center">
+                            <input type="number" className="w-12 bg-gray-900 text-white py-1 px-2 rounded-md mr-2 text-center" placeholder="0" />
+                            <span className="text-base font-semibold text-green-400">vs</span>
+                            <input type="number" className="w-12 bg-gray-900 text-white py-1 px-2 rounded-md ml-2 text-center" placeholder="0" />
+                          </div>
+                        </>
+                      ) : (
+                        <p className="text-base italic text-green-400">
+                          {partido[0] === "Descansa" ? `${partido[1]} descansa esta jornada` : `${partido[0]} descansa esta jornada`}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default DateModePage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

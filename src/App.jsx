@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom"
-import NavBar from "./components/NavBar"
 import DateModePage from "./pages/DateModePage"
 import Home from "./pages/Home"
 import LightningModePage from "./pages/LightningModePage"
@@ -11,9 +10,6 @@ function App() {
 
   return (
     <>
-      <div className="fixed w-full">
-        <NavBar />
-      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/date-mode/:id" element={<DateModePage />} />

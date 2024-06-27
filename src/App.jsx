@@ -9,7 +9,7 @@ import PositionsTable from "./pages/PositionsTable"
 function App() {
 
   return (
-    <div className="bg-purple-600 minh-screen">
+    <div className="">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/date-mode/:id" element={<DateModePage />} />

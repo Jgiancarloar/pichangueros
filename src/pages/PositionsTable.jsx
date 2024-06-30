@@ -62,27 +62,27 @@ const PositionsTable = () => {
     });
 
     return (
-        <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen py-8">
-            <div className="max-w-4xl mx-auto px-4">
-                <h2 className="text-2xl font-bold mb-4">Tabla de Posiciones</h2>
+        <div className="text-white">
+            <div className="max-w-4xl mx-auto ">
+                <h2 className="text-2xl font-bold mb-4 text-center">Tabla de Posiciones</h2>
                 <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-gray-700">
                         <thead>
-                            <tr className="bg-gray-800">
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">Equipos</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">PJ</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">PG</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">PE</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">PP</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">GF</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">GC</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">DG</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">Pts</th>
+                            <tr className="bg-neutral-900">
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">Equipos</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">PJ</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">PG</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">PE</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">PP</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">GF</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">GC</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">DG</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">Pts</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-700">
                             {tablaPosiciones.map((equipo, index) => (
-                                <tr key={equipo.id} className={index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-700'}>
+                                <tr key={equipo.id} className={index % 2 === 0 ? 'bg-neutral-700' : 'bg-neutral-600'}>
                                     <td className="px-2 py-4 whitespace-nowrap text-sm font-medium text-white capitalize">{equipo.name}</td>
                                     <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.partidosJugados}</td>
                                     <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.partidosGanados}</td>

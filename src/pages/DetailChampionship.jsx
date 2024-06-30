@@ -44,11 +44,11 @@ const DetailChampionship = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen pt-20 pb-5 px-5">
+    <div className="text-white max-w-lg mx-auto">
       <div className="mb-8">
-        <p className="text-lg font-semibold capitalize">Nombre: {championship.name}</p>
-        <p className="text-lg font-semibold capitalize">Organizador: {championship.organizer}</p>
-        <p className="text-lg font-semibold">N° de equipos: {teams?.length}</p>
+        <p className="text-lg capitalize">Nombre: {championship.name}</p>
+        <p className="text-lg capitalize">Organizador: {championship.organizer}</p>
+        <p className="text-lg">N° de equipos: {teams?.length}</p>
       </div>
       <div className="mb-8">
         {!championship?.fixture && (
@@ -68,12 +68,12 @@ const DetailChampionship = () => {
         )}
       </div>
       <div className="space-y-4">
-        {!championship.fixture && (teams?.map((team,index) => (
+        {!championship.fixture && (teams?.map((team, index) => (
           <div
             key={team.id}
             className="border border-gray-700 p-4 rounded-lg flex justify-between items-center bg-gray-800"
           >
-            <h3 className="text-lg font-semibold capitalize">N° {index+1}: {team.name}</h3>
+            <h3 className="text-lg font-semibold capitalize">N° {index + 1}: {team.name}</h3>
             <div className="flex gap-2">
               <button
                 onClick={() => handleDelete(team.id)}
@@ -99,7 +99,7 @@ const DetailChampionship = () => {
         {championship?.fixture && (
           <button
             onClick={() => handleWatchTeams(championship.id)}
-            className="bg-green-500 font-bold hover:bg-green-600 text-black py-2 px-4 rounded-lg"
+            className="bg-green-500 font-bold hover:bg-green-600 text-black py-2 px-4 rounded-lg w-64"
           >
             Ver Equipos
           </button>
@@ -109,7 +109,7 @@ const DetailChampionship = () => {
         {championship?.fixture && (
           <button
             onClick={() => handleWatchFixture(championship.id)}
-            className="bg-green-500 font-bold hover:bg-green-600 text-black py-2 px-4 rounded-lg"
+            className="bg-green-500 font-bold hover:bg-green-600 text-black py-2 px-4 rounded-lg w-64"
           >
             Ver Fixture
           </button>
@@ -119,7 +119,7 @@ const DetailChampionship = () => {
         {championship?.fixture && (
           <button
             onClick={() => handleWatchPositionsTable(championship.id)}
-            className="bg-green-500 font-bold hover:bg-green-600 text-black py-2 px-4 rounded-lg"
+            className="bg-green-500 font-bold hover:bg-green-600 text-black py-2 px-4 rounded-lg w-64"
           >
             Ver Tabla de Posiciones
           </button>

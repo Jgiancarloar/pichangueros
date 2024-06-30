@@ -44,39 +44,39 @@ const DateModePage = () => {
   };
 
   return (
-    <div className=" text-white min-h-screen pt-20">
-      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div className=" text-white ">
+      <div className="max-w-lg mx-auto sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <p className="text-3xl font-bold">{name}</p>
+          <p className="text-3xl font-bold capitalize">{name}</p>
           <p className="text-lg text-gray-300">Organizado por {organizer}</p>
         </div>
         {fixture.map((ronda, index) => (
-          <div key={ronda.id} className="bg-gray-800 rounded-lg shadow-lg mb-6">
-            <div className="px-6 py-4 bg-gray-700 rounded-t-lg">
+          <div key={ronda.id} className="bg-neutral-700 rounded-lg shadow-lg mb-6">
+            <div className="px-6 py-4 bg-neutral-900 rounded-t-lg">
               <p className="text-xl font-bold">Ronda {index + 1}</p>
             </div>
-            <div className="divide-y divide-gray-700">
+            <div className="divide-y divide-neutral-800">
               {sortPartidos([...ronda.partidos]).map((partido, partidoIndex) => (
                 <div key={partido.id} className="flex items-center justify-between py-4 px-6">
                   <div className="flex flex-col items-start">
                     {partido.local !== "Descansa" && partido.visitante !== "Descansa" ? (
                       <>
-                        <p className="text-lg capitalize">{partido.local} {partido.ganador === partido.local && <span className="text-green-500">(G)</span>}</p>
-                        <p className="text-lg capitalize">{partido.visitante} {partido.ganador === partido.visitante && <span className="text-green-500">(G)</span>}</p>
+                        <p className="text-base capitalize">{partido.local} {partido.ganador === partido.local && <span className="text-green-500">(G)</span>}</p>
+                        <p className="text-base capitalize">{partido.visitante} {partido.ganador === partido.visitante && <span className="text-green-500">(G)</span>}</p>
                       </>
                     ) : (
                       partido.local === "Descansa" ? (
-                        <p className="text-lg text-green-400 italic">
+                        <p className="text-base text-green-400 italic">
                           <span className="capitalize">{partido.visitante}</span> descansa esta jornada.
                         </p>
                       ) : (
-                        <p className="text-lg text-green-400 italic">
+                        <p className="text-base text-green-400 italic">
                           <span className="capitalize">{partido.local}</span> descansa esta jornada.
                         </p>
                       )
                     )}
                   </div>
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2">
                     {partido.local !== "Descansa" && partido.visitante !== "Descansa" && (
                       <>
                         <input
@@ -84,7 +84,7 @@ const DateModePage = () => {
                           placeholder="0"
                           value={partido.golesLocal}
                           onChange={(e) => handleGolesLocalChange(ronda.id, partido.id, e.target.value)}
-                          className="w-16 py-2 px-3 text-center text-gray-900 bg-gray-600 rounded-md focus:outline-none focus:bg-gray-700"
+                          className="w-12 py-2 px-3 text-center bg-neutral-800 rounded-md focus:outline-none focus:bg-neutral-600"
                         />
                         <span className="text-2xl text-gray-500">-</span>
                         <input
@@ -92,7 +92,7 @@ const DateModePage = () => {
                           placeholder="0"
                           value={partido.golesVisitante}
                           onChange={(e) => handleGolesVisitanteChange(ronda.id, partido.id, e.target.value)}
-                          className="w-16 py-2 px-3 text-center text-gray-900 bg-gray-600 rounded-md focus:outline-none focus:bg-gray-700"
+                          className="w-12 py-2 px-3 text-center bg-neutral-800 rounded-md focus:outline-none focus:bg-neutral-600"
                         />
                       </>
                     )}

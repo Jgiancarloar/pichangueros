@@ -10,7 +10,7 @@ import ListOfTeams from "./pages/ListOfTeams"
 function App() {
 
   return (
-    <div className="bg-[#252525] px-5 py-10 min-h-screen">
+    <div className="bg-neutral-800 px-5 py-10 min-h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/date-mode/:id" element={<DateModePage />} />

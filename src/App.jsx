@@ -10,7 +10,7 @@ import ListOfTeams from "./pages/ListOfTeams"
 function App() {
 
   return (
-    <>
+    <div className="bg-[#252525] px-5 py-10 min-h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/date-mode/:id" element={<DateModePage />} />
@@ -20,7 +20,7 @@ function App() {
         <Route path="/positions-table/:id" element={<PositionsTable />} />
         <Route path="/list-of-teams/:id" element={<ListOfTeams />} />
       </Routes>
-    </>
+    </div>
   )
 }
 

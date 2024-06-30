@@ -32,7 +32,7 @@ const Home = () => {
   };
 
   return (
-    <div className="text-white min-h-screen pt-20 pb-5 px-5">
+    <div className="text-white">
       <div className="mx-auto">
         <h2 className="text-3xl font-bold mb-8">Bienvenido, Giancarlo</h2>
         <div className="mb-8 flex justify-between items-center">

@@ -5,6 +5,7 @@ import LightningModePage from "./pages/LightningModePage"
 import GroupModePage from "./pages/GroupModePage"
 import DetailChampionship from "./pages/DetailChampionship"
 import PositionsTable from "./pages/PositionsTable"
+import ListOfTeams from "./pages/ListOfTeams"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/group-mode" element={<GroupModePage />} />
         <Route path="detail-championship/:id" element={<DetailChampionship />} />
         <Route path="/positions-table/:id" element={<PositionsTable />} />
+        <Route path="/list-of-teams/:id" element={<ListOfTeams />} />
       </Routes>
     </>
   )

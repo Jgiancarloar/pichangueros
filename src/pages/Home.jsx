@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteChampionship } from "../redux/sliceChampionship";
 import { useNavigate } from "react-router-dom";
 import CreateChampionship from "../components/forms/CreateChampionship";
+import { IoEyeSharp } from "react-icons/io5";
+import { MdDelete } from "react-icons/md";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -49,29 +51,23 @@ const Home = () => {
               key={championship.id}
               className="p-4 rounded-lg mb-4 bg-gray-800"
             >
-              <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleExpand(championship.id)}>
+              <div className="flex justify-between items-center">
                 <h3 className="text-lg font-semibold capitalize">{championship.name}</h3>
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleInfo(championship.id)}
-                    className="bg-yellow-500 bg-opacity-20 font-semibold hover:bg-yellow-600 text-yellow-500 py-2 px-5 rounded-lg transition duration-200"
+                    className="bg-yellow-500 bg-opacity-20 font-semibold hover:bg-yellow-600 text-yellow-500 py-2 px-4 rounded-lg transition duration-200"
                   >
-                    Info
+                    <IoEyeSharp size={20} />
                   </button>
                   <button
                     onClick={() => handleDelete(championship.id)}
-                    className="bg-red-500 bg-opacity-20 font-semibold hover:bg-red-600 text-red-500 py-2 px-5 rounded-lg transition duration-200"
+                    className="bg-red-500 bg-opacity-20 font-semibold hover:bg-red-600 text-red-500 py-2 px-4 rounded-lg transition duration-200"
                   >
-                    Eliminar
+                    <MdDelete size={20} />
                   </button>
                 </div>
               </div>
-              {expandedId === championship.id && (
-                <div className="mt-4">
-                  <p>Detalles del campeonato: {championship.details}</p>
-                  {/* Agregar más detalles si es necesario */}
-                </div>
-              )}
             </div>
           ))}
         </div>

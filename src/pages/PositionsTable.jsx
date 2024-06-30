@@ -69,29 +69,29 @@ const PositionsTable = () => {
                     <table className="min-w-full divide-y divide-gray-700">
                         <thead>
                             <tr className="bg-gray-800">
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Equipo</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">PJ</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">PG</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">PE</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">PP</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">GF</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">GC</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">DG</th>
-                                <th className="px-2 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Pts</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">Equipos</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">PJ</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">PG</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">PE</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">PP</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">GF</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">GC</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">DG</th>
+                                <th className="px-2 py-3 text-left text-xs font-medium text-green-400 uppercase tracking-wider">Pts</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-700">
                             {tablaPosiciones.map((equipo, index) => (
                                 <tr key={equipo.id} className={index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-700'}>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm font-medium text-white">{equipo.name}</td>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-300">{equipo.partidosJugados}</td>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-300">{equipo.partidosGanados}</td>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-300">{equipo.partidosEmpatados}</td>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-300">{equipo.partidosPerdidos}</td>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-300">{equipo.golesFavor}</td>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-300">{equipo.golesContra}</td>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-300">{equipo.diferenciaGoles}</td>
-                                    <td className="px-2 py-4 whitespace-nowrap text-sm text-gray-300">{equipo.puntos}</td>
+                                    <td className="px-2 py-4 whitespace-nowrap text-sm font-medium text-white capitalize">{equipo.name}</td>
+                                    <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.partidosJugados}</td>
+                                    <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.partidosGanados}</td>
+                                    <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.partidosEmpatados}</td>
+                                    <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.partidosPerdidos}</td>
+                                    <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.golesFavor}</td>
+                                    <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.golesContra}</td>
+                                    <td className="px-2 py-4 text-center whitespace-nowrap text-sm text-gray-300">{equipo.diferenciaGoles}</td>
+                                    <td className="px-2 py-4 text-center whitespace-nowrap text-sm font-medium text-gray-300">{equipo.puntos}</td>
                                 </tr>
                             ))}
                         </tbody>

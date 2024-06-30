@@ -31,6 +31,7 @@ const CreateChampionship = ({ isOpen, onOpenChange }) => {
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1" htmlFor="name">Nombre del campeonato</label>
           <input
+            autoComplete="off"
             className="w-full p-2 bg-gray-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
             id="name"
             name="name"
@@ -42,6 +43,7 @@ const CreateChampionship = ({ isOpen, onOpenChange }) => {
         <div className="mb-6">
           <label className="block text-sm font-medium mb-1" htmlFor="organizer">Organizador</label>
           <input
+            autoComplete="off"
             className="w-full p-2 bg-gray-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
             id="organizer"
             name="organizer"

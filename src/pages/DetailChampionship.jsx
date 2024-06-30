@@ -4,6 +4,7 @@ import { useState } from "react";
 import CreateTeam from "../components/forms/CreateTeam";
 import { addFixture, deleteTeam } from "../redux/sliceChampionship";
 import crearFixture from "../utils/DateMode";
+import { MdDelete } from "react-icons/md";
 
 const DetailChampionship = () => {
   const navigate = useNavigate();
@@ -38,11 +39,15 @@ const DetailChampionship = () => {
     navigate(`/positions-table/${id}`);
   };
 
+  const handleWatchTeams = (id) => {
+    navigate(`/list-of-teams/${id}`);
+  }
+
   return (
     <div className="bg-gradient-to-br from-gray-900 to-black text-white min-h-screen pt-20 pb-5 px-5">
       <div className="mb-8">
-        <p className="text-lg font-semibold">Nombre: {championship.name}</p>
-        <p className="text-lg font-semibold">Organizador: {championship.organizer}</p>
+        <p className="text-lg font-semibold capitalize">Nombre: {championship.name}</p>
+        <p className="text-lg font-semibold capitalize">Organizador: {championship.organizer}</p>
         <p className="text-lg font-semibold">N° de equipos: {teams?.length}</p>
       </div>
       <div className="mb-8">
@@ -63,22 +68,22 @@ const DetailChampionship = () => {
         )}
       </div>
       <div className="space-y-4">
-        {teams?.map((team) => (
+        {!championship.fixture && (teams?.map((team,index) => (
           <div
             key={team.id}
             className="border border-gray-700 p-4 rounded-lg flex justify-between items-center bg-gray-800"
           >
-            <h3 className="text-lg font-semibold">{team.name}</h3>
+            <h3 className="text-lg font-semibold capitalize">N° {index+1}: {team.name}</h3>
             <div className="flex gap-2">
               <button
                 onClick={() => handleDelete(team.id)}
-                className="bg-red-500 font-bold hover:bg-red-600 text-black py-1 px-3 rounded-lg"
+                className="bg-red-500 bg-opacity-20 font-semibold hover:bg-red-600 text-red-500 py-2 px-4 rounded-lg transition duration-200"
               >
-                Eliminar
+                <MdDelete size={20} />
               </button>
             </div>
           </div>
-        ))}
+        )))}
       </div>
       <div className="mt-8">
         {teams?.length > 1 && !championship?.fixture && (
@@ -90,7 +95,17 @@ const DetailChampionship = () => {
           </button>
         )}
       </div>
-      <div className="mt-4">
+      <div className="mt-4 flex justify-center">
+        {championship?.fixture && (
+          <button
+            onClick={() => handleWatchTeams(championship.id)}
+            className="bg-green-500 font-bold hover:bg-green-600 text-black py-2 px-4 rounded-lg"
+          >
+            Ver Equipos
+          </button>
+        )}
+      </div>
+      <div className="mt-4 flex justify-center">
         {championship?.fixture && (
           <button
             onClick={() => handleWatchFixture(championship.id)}
@@ -100,7 +115,7 @@ const DetailChampionship = () => {
           </button>
         )}
       </div>
-      <div className="mt-4">
+      <div className="mt-4 flex justify-center">
         {championship?.fixture && (
           <button
             onClick={() => handleWatchPositionsTable(championship.id)}

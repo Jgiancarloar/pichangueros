@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CreateTeam from "../components/forms/CreateTeam";
 import { addFixture, deleteTeam } from "../redux/sliceChampionship";
 import crearFixture from "../utils/DateMode";
@@ -17,6 +17,16 @@ const DetailChampionship = () => {
   const teamsNames = teams?.map((team) => team.name);
 
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+  }, [showModal]);
 
   const handleCreate = () => {
     setShowModal(!showModal);
@@ -41,7 +51,7 @@ const DetailChampionship = () => {
 
   const handleWatchTeams = (id) => {
     navigate(`/list-of-teams/${id}`);
-  }
+  };
 
   return (
     <div className="text-white max-w-lg mx-auto">

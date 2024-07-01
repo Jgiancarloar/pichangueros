@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteChampionship } from "../redux/sliceChampionship";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,16 @@ const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const [expandedId, setExpandedId] = useState(null);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+  }, [showModal]);
 
   const championships = useSelector((state) => state.championship);
 
@@ -25,10 +34,6 @@ const Home = () => {
 
   const handleInfo = (id) => {
     navigate(`/detail-championship/${id}`);
-  };
-
-  const toggleExpand = (id) => {
-    setExpandedId(expandedId === id ? null : id);
   };
 
   return (

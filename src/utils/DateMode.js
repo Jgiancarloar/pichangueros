@@ -1,7 +1,20 @@
 import { v4 as uuidv4 } from 'uuid';
 
+// Función para mezclar (shuffle) un array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 export default function crearFixture(equipos) {
-    let newEquipos = [...equipos];
+    // Mezclar el array de equipos
+    const shuffledEquipos = shuffleArray([...equipos]);
+
+    // Trabajar con una copia mezclada del array de equipos
+    let newEquipos = [...shuffledEquipos];
     if (newEquipos.length % 2 !== 0) {
         newEquipos.push("Descansa");
     }
